@@ -216,3 +216,51 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.DocumentRevisions-V100
+.fseventsd/
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder/
+Temporary Items/
+.apdisk
+
+# ML / data science artifacts
+data/
+datasets/
+images/
+checkpoints/
+artifacts/
+models/
+logs/
+wandb/
+mlruns/
+*.h5
+*.hdf5
+*.ckpt
+*.pkl
+*.joblib
+*.model
+*.onnx
+*.pt
+*.pth
+*.weights
+*.zip
+*.tar
+*.tar.gz
+
+# Local environment / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
