@@ -7,9 +7,9 @@ width, height = 144, 144
 
 data_augmentation = tf.keras.Sequential([
   # layers.RandomFlip("horizontal_and_vertical"),
-  layers.RandomRotation(0.05),
+  layers.RandomRotation(0.02),
   layers.Rescaling(1./255),
-  layers.RandomZoom(0.04),
+  # layers.RandomZoom(0.04),
 ])
 
 # images, labels = next(iter(train_data))

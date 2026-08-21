@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 
 image_file = (
-        Path(__file__).resolve().parent.parent / "data" / "dataset-card.jpeg"
+        Path(__file__).resolve().parent.parent / "data" / "fb.jpeg"
     )
 model = tf.keras.models.load_model("model.keras")
 

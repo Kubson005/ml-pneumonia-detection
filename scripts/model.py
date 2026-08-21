@@ -22,26 +22,23 @@ model = tf.keras.Sequential([
     data_augmentation,
 
     # filter - numer of different features
-    layers.Conv2D(filters=16, kernel_size=(3, 3), padding='same', activation="relu"),
-    # aaa
-    layers.MaxPooling2D(),
-
     layers.Conv2D(filters=32, kernel_size=(3, 3), padding='same', activation="relu"),
+    # aaa
     layers.MaxPooling2D(),
 
     layers.Conv2D(filters=64, kernel_size=(3, 3), padding='same', activation="relu"),
     layers.MaxPooling2D(),
 
+    layers.Conv2D(filters=128, kernel_size=(3, 3), padding='same', activation="relu"),
+    layers.MaxPooling2D(),
+
     # transfer to 1D
     # types: flatten, global average pooling 2d, global max pooling 2d
-    # layers.Flatten(),
-    layers.GlobalAveragePooling2D(),
+    layers.Flatten(),
 
-    layers.Dropout(0.1),
-    layers.Dense(128, activation='relu'),
-    layers.Dropout(0.3),
     layers.Dense(64, activation='relu'),
     layers.Dropout(0.1),
+    layers.Dense(32, activation='relu'),
 
     layers.Dense(1, activation='sigmoid')
     ])
@@ -55,7 +52,7 @@ model.compile(optimizer='adam',
 
 early_stop = tf.keras.callbacks.EarlyStopping(
     monitor='val_loss',
-    patience=4, # the more the less aggresive
+    patience=3, # the more the less aggresive
     restore_best_weights=True
 )
 
@@ -64,7 +61,7 @@ history = model.fit(
   validation_data=validation_data,
   class_weight=class_weight,
   callbacks=[early_stop],
-  epochs=10
+  epochs=7
 )
 
 loss, acc, auc, precision, recall = model.evaluate(test_data)
