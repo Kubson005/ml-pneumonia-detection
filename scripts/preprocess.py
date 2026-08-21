@@ -1,29 +1,29 @@
-from import_data import load_data
 import tensorflow as tf
 from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 
-train_data, validation_data, test_data = load_data()
 width, height = 144, 144
 
 
 data_augmentation = tf.keras.Sequential([
   # layers.RandomFlip("horizontal_and_vertical"),
-  layers.RandomRotation(0.04),
+  layers.RandomRotation(0.05),
+  layers.Rescaling(1./255),
+  layers.RandomZoom(0.04),
 ])
 
-images, labels = next(iter(train_data))
-image = images[0].numpy() / 255.0
+# images, labels = next(iter(train_data))
+# image = images.numpy() / 255.0
 
-fig, (ax1, ax2) = plt.subplots(1, 2)
-ax1.imshow(image)
+# fig, (ax1, ax2) = plt.subplots(1, 2)
+# ax1.imshow(image)
 
-plt.figure(figsize=(10, 10))
-for i in range(9):
-  augmented_image = data_augmentation(image)
-  ax = plt.subplot(3, 3, i + 1)
-  plt.imshow(augmented_image)
-  plt.axis("off")
+# plt.figure(figsize=(10, 10))
+# for i in range(9):
+#   augmented_image = data_augmentation(image)
+#   ax = plt.subplot(3, 3, i + 1)
+#   plt.imshow(augmented_image)
+#   plt.axis("off")
 
-plt.tight_layout()
-plt.show()
+# plt.tight_layout()
+# plt.show()

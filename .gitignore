@@ -264,3 +264,6 @@ mlruns/
 *.swp
 *.swo
 *~
+
+scripts/*.keras
+scripts/*.joblib
